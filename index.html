@@ -53,7 +53,10 @@
         <a class="nav-link js-scroll-trigger" href="#interests">兴趣</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link js-scroll-trigger" href="#interests">反馈/留言</a>
+        <a class="nav-link js-scroll-trigger" href="#books">技术书单</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#comment">反馈/留言</a>
       </li>
     </ul>
   </div>
@@ -282,6 +285,23 @@
 
   <hr class="m-0">
 
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="books">
+    <div class="my-auto">
+      <h2 class="mb-5">技术书单</h2>
+      <p>目前正在看深度学习方面书籍，主要有：
+      <ul>
+        <li>Python神经网络编程</li>
+        <li>深度学习入门——基于Python的理论与实践</li>
+        <li>Python深度学习</li>
+        <li>利用Python进行数据分析</li>
+        <li>深度学习</li>
+      </ul>
+      </p>
+    </div>
+  </section>
+
+  <hr class="m-0">
+
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="download">
     <p><a href="刘振华的简历.pdf">下载「刘振华的简历.pdf」</a></p>
   </section>
@@ -296,14 +316,14 @@
     <script>
       const myTheme = {
         render(state, instance) {
-          const container = document.createElement('div')
-          container.lang = "en-US"
-          container.className = 'gitment-container gitment-root-container'
-          container.appendChild(instance.renderHeader(state, instance))
-          container.appendChild(instance.renderEditor(state, instance))
-          container.appendChild(instance.renderComments(state, instance))
-          container.appendChild(instance.renderFooter(state, instance))
-          return container
+          const container = document.createElement('div');
+          container.lang = 'en-US';
+          container.className = 'gitment-container gitment-root-container';
+          container.appendChild(instance.renderHeader(state, instance));
+          container.appendChild(instance.renderEditor(state, instance));
+          container.appendChild(instance.renderComments(state, instance));
+          container.appendChild(instance.renderFooter(state, instance));
+          return container;
         },
       };
       var gitment = new Gitment({
@@ -316,7 +336,7 @@
         },
         theme: myTheme,
       });
-      gitment.render('gitment')
+      gitment.render('gitment');
     </script>
   </section>
 
