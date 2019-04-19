@@ -108,9 +108,5 @@ gulp.task('dev', ['css', 'js', 'browserSync'], function() {
 });
 
 gulp.task('deploy', function() {
-  execSync(`
-  ssh liuzhenhua@liuzhenhua.net
-  cd /home/liuzhenhua/www/resume
-  git pull
-  `);
+  execSync('ssh liuzhenhua@liuzhenhua.net "cd /home/liuzhenhua/www/resume;git pull"');
 });
