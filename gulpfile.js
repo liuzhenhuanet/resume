@@ -7,7 +7,8 @@ var uglify = require('gulp-uglify');
 var autoprefixer = require('gulp-autoprefixer');
 var pkg = require('./package.json');
 var browserSync = require('browser-sync').create();
-var fs = require('fs');
+var execSync = require('child_process').execSync;
+var exec = require('child_process').exec;
 
 // Set the banner content
 var banner = [
@@ -107,19 +108,9 @@ gulp.task('dev', ['css', 'js', 'browserSync'], function() {
 });
 
 gulp.task('deploy', function() {
-  const USER_HOME = process.env.HOME || process.env.USERPROFILE;
-  var GulpSSH = require('gulp-ssh');
-  var sshConfig = {
-    host: 'liuzhenhua.net',
-    port: 22,
-    username: 'liuzhenhua',
-    privateKey: fs.readFileSync(USER_HOME + '/.ssh/id_rsa'),
-  };
-  var gulpSSH = new GulpSSH({
-    ignoreErrors: false,
-    sshConfig: sshConfig,
-  });
-  return gulp.src(['./**/*', '!node_modules/']).pipe(
-    gulpSSH.dest('/home/liuzhenhua/www/resume'),
-  );
+  execSync(`
+  ssh liuzhenhua@liuzhenhua.net
+  cd /home/liuzhenhua/www/resume
+  git pull
+  `);
 });
