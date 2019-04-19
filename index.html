@@ -52,6 +52,9 @@
       <li class="nav-item">
         <a class="nav-link js-scroll-trigger" href="#interests">兴趣</a>
       </li>
+      <li class="nav-item">
+        <a class="nav-link js-scroll-trigger" href="#interests">反馈/留言</a>
+      </li>
     </ul>
   </div>
 </nav>
@@ -281,6 +284,40 @@
 
   <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="download">
     <p><a href="刘振华的简历.pdf">下载「刘振华的简历.pdf」</a></p>
+  </section>
+
+  <hr class="m-0">
+
+  <!-- 评论 -->
+  <section class="resume-section p-3 p-lg-5 d-flex flex-column" id="comment">
+    <div id="gitment"></div>
+    <link rel="stylesheet" href="https://imsun.github.io/gitment/style/default.css">
+    <script src="https://imsun.github.io/gitment/dist/gitment.browser.js"></script>
+    <script>
+      const myTheme = {
+        render(state, instance) {
+          const container = document.createElement('div')
+          container.lang = "en-US"
+          container.className = 'gitment-container gitment-root-container'
+          container.appendChild(instance.renderHeader(state, instance))
+          container.appendChild(instance.renderEditor(state, instance))
+          container.appendChild(instance.renderComments(state, instance))
+          container.appendChild(instance.renderFooter(state, instance))
+          return container
+        },
+      };
+      var gitment = new Gitment({
+        id: 'resume', // 可选。默认为 location.href
+        owner: 'liuzhenhuanet',
+        repo: 'resume',
+        oauth: {
+          client_id: 'fc8ac0846b31d60681ce',
+          client_secret: '845e44f62620e93e8ae2d7143f0832d7f8fb7d76',
+        },
+        theme: myTheme,
+      });
+      gitment.render('gitment')
+    </script>
   </section>
 
 </div>
