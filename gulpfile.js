@@ -107,6 +107,14 @@ gulp.task('dev', ['css', 'js', 'browserSync'], function() {
   gulp.watch('./*.html', browserSync.reload);
 });
 
+function deploy() {
+  execSync('git push && git push github && ssh liuzhenhua@liuzhenhua.net "cd /home/liuzhenhua/www/resume;git pull"');
+}
+
 gulp.task('deploy', function() {
-  execSync('ssh liuzhenhua@liuzhenhua.net "cd /home/liuzhenhua/www/resume;git pull"');
+  deploy();
+});
+
+gulp.task('d', function() {
+  deploy();
 });
